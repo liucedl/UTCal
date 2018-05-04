@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<!-- 指定国际化资源文件的baseName为 messageResource-->
+	<constant name="struts.custom.i18n.resources" value="message"/>
+	<!-- 设置Struts应用的解码集 -->
+	<constant name="struts.i18n.encoding" value="utf-8"/>
+	<constant name="struts.multipart.saveDir" value="d:/tmpuploadfiles"/>
+	<constant name="struts.multipart.maxSize" value="20971520"/>
+	<!-- 设置表单主题为simple -->
+	<constant name="struts.ui.theme" value="simple" />
+	<!-- 访问静态方法和属性 -->
+	<constant name="struts.ognl.allowStaticMethodAccess" value="true"/>
+	<package name="mydefault" namespace="/mydefault" extends="struts-default">
+		<interceptors>
+			<interceptor name="loginValidateInterceptor" class="intercepter.UserLoginValidateInterceptor"/>
+			<interceptor-stack name="myStack">	
+				<interceptor-ref name="loginValidateInterceptor"/>
+				<interceptor-ref name="defaultStack"/>
+			</interceptor-stack>
+		</interceptors>
+		
+		<global-results>
+			<!-- 全局转发，程序出错时，也可使用全局异常 -->
+			<result name="error">/error.jsp</result>
+			<!-- 前台注册用户没有登录 -->
+			<result name="userNoLoginError">/beforeUser/userNoLogin.jsp</result>
+		</global-results>
+	</package>
+	<include file="conf/before_index.xml"/>
+	<include file="conf/before_user.xml"/>
+	<include file="conf/before_cart.xml"/> 
+	<include file="conf/admin.xml"/>
+	<include file="conf/language.xml"/>
+</struts>    
