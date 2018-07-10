@@ -1,7 +1,10 @@
 .fullYearPicker{
-	margin-top: 10px;
 	-webkit-user-select: none; 
-	
+	position:relative;
+	top:30px;
+	left:15px;
+	width:80%;
+    margin:10px auto 20px auto;
 }
 
 .fullYearPicker .month-container{
@@ -101,7 +104,7 @@
 
 
 .fullYearPicker table th {
-	color: #80808f;
+	color: #000000;/*ºÚÉ«*/
 	font-size: 14px;
 	padding: 5px;
 }
@@ -181,7 +184,7 @@
 	border-bottom: 2px solid #31aaef; 
 }
 
-body .hd_info_modal .radius{
+.hd_info_modal .radius{
 	border-radius:5px;
 }
 .hd_info_modal .hd-type-select{
