@@ -25,7 +25,7 @@ import DTO.InformationDTO;
 /**
  * Servlet implementation class Information_show
  */
-@WebServlet("/control/Information_show")
+@WebServlet("/Control/Information_show")
 public class Information_show extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        

@@ -12,7 +12,7 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-@WebFilter(filterName="Filler_InformationShowFilter",urlPatterns={"/Control/Information_Show"})
+@WebFilter(filterName="Filter_InformationShowFilter",urlPatterns={"/Control/Information_Show"})
 public class InformationShowFilter implements Filter {
 
 	@Override

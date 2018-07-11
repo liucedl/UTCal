@@ -92,6 +92,9 @@
 			else if(Add_Form.hd_hours.value > 16){
 				alert("加班时数不得超过16小时!");	
 			}
+			else{
+				Add_Form.submit();
+			}
 		}
 		else if(Add_Form.hd_type_option.value =="tradeday"){
 			if(Add_Form.hd_hours.value ==""){
@@ -100,9 +103,12 @@
 			else if(Add_Form.hd_hours.value > 8){
 				alert("休假时数不得超过8小时!");	
 			}
+			else{
+				Add_Form.submit();
+			}
 		}		
 		else{
-			Add_Form.submit();
+			alert("请选择类型！");			
 		} 
 	}
 	

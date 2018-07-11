@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.user.util.DBConnection;
+
 /*import DTO.Datebase;*/
 
 /**
@@ -61,7 +63,8 @@ public class Information_add extends HttpServlet {
 			PreparedStatement pre=null;		
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				con=DriverManager.getConnection("jdbc:mysql://localhost:3306/afls", "root", "zaq12wsx");
+				con=DBConnection.getConn();
+				//con=DriverManager.getConnection("jdbc:mysql://localhost:3306/afls", "root", "zaq12wsx");
 				//con=DriverManager.getConnection(Datebase.getBluemixUrl(),Datebase.getBluemixUserName(),Datebase.getBluemixPassword());				
 				pre=con.prepareStatement(sql);
 				pre.setString(1,userid);
@@ -113,7 +116,8 @@ public class Information_add extends HttpServlet {
 			PreparedStatement pre=null;					
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
-				con=DriverManager.getConnection("jdbc:mysql://localhost:3306/afls", "root", "root");
+				con=DBConnection.getConn();
+				//con=DriverManager.getConnection("jdbc:mysql://localhost:3306/afls", "root", "root");
 				//con=DriverManager.getConnection(Datebase.getBluemixUrl(),Datebase.getBluemixUserName(),Datebase.getBluemixPassword());
 				
 				pre=con.prepareStatement(sql);
