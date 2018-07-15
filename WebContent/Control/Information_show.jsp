@@ -12,7 +12,7 @@
 <!--  <link rel="stylesheet" type="text/css" href="../Css/mystyle2.css"> -->
 </head>
 <body>
-	<form name="Search_info" method="post" action="Result_Search">
+	<form name="Search_info" method="post" action="Information_show">
 		<table cellpadding="0" cellspacing="0" border="0">
 			<tbody>
 				<tr>
@@ -30,11 +30,12 @@
 										onchange="UseridCheck()" size="40"
 										style="background-color: rgb(255, 255, 255);"></td>
 								</tr>
+								
 								<tr>
 									<td width="125" height="10" align="right"
 										class="bgcolor_yellow2">From</td>
-									<td align="left"><input id="test_exam_date_from"
-										name="test_exam_date_from" type="date"
+									<td align="left"><input id="search_date_from"
+										name="search_date_from" type="date"
 										onfocus="this.style.backgroundColor='#FEFCD8'"
 										onblur="this.style.backgroundColor='#FFFFFF'"
 										onchange="DateCheck(this.id)" maxlength="10" size="40"
@@ -44,13 +45,13 @@
 								<tr>
 									<td width="125" height="10" align="right"
 										class="bgcolor_yellow2">To</td>
-									<td align="left"><input id="test_exam_date_to"
-										name="test_exam_date_to" type="date"
+									<td align="left"><input id="search_date_to"
+										name="search_date_to" type="date"
 										onfocus="this.style.backgroundColor='#FEFCD8'"
 										onblur="this.style.backgroundColor='#FFFFFF'"
 										onchange="DateCheck(this.id)" maxlength="10" size="40"
 										style="background-color: rgb(255, 255, 255);"></td>
-								</tr>
+								</tr>				
 
 							</tbody>
 						</table>
@@ -74,22 +75,34 @@
 	<hr align="left" size="1" class="bgcolor_gray2" width="80%">
 	<p></p>
 
+<table>
+    <tbody>
+    <tr>
+        <td width="125" height="10" align="left" class="bgcolor_yellow2">User ID : </td>
+        <td align="left">${requestScope.id }</td>
+    </tr>
+    <tr>
+        <td width="125" height="10" align="left" class="bgcolor_yellow2">Name : </td>
+        <td align="left">${requestScope.name }</td>
+    </tr>
 
+    </tbody>
+    
+ <form name=add method="post" action="Information_add.jsp" >
+<table cellpadding="0" cellspacing="0" border="0" width="50%">
+    <tr>
+       	<tr>
+            <input type="hidden" name="id" type="text" value ="${requestScope.id }">
+            <input type="hidden" name="name" type="text" value ="${requestScope.name }">
+        </tr>
+          <input type="submit" value=" Add " class="form_bt_px16"
+                 align="absmiddle" >
+    </tr>
+</table>
+</form>
 
-	<table border="0" cellpadding="3" cellspacing="1" width="90%">
-		<tbody>
-			<tr>
-				<td align="left">
-					<div class="text_l">
-						<img src="../Img/sub_title.gif" width="10" height="14"
-							align="absmiddle" style="margin-right: 5px">Information
-					</div>
-				</td>
-
-			</tr>
-
-		</tbody>
-	</table>
+   
+</table>
 
 	<table>
 		<tbody>
@@ -130,10 +143,10 @@
 											<td align="center">${informationdto["type"] }</td>
 											<td align="center"><input type="button"
 												class="form_bt_px14" value="Update"
-												onclick="doUpdate('${id}','${requestScope.name }','${informationdto["date"] }','${informationdto["hours"] }','${informationdto["type"] }')"></td>
+												onclick="doUpdate('${id}','${informationdto["date"] }','${informationdto["hours"] }','${informationdto["type"] }')"></td>
 											<td align="center"><input type="button"
 												class="form_bt_px14" value="Delete"
-												onclick="doDelete('${id}','${requestScope.name }','${informationdto["date"] }','${informationdto["type"] }')"></td>
+												onclick="doDelete('${id}','${informationdto["date"] }','${informationdto["type"] }')"></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -146,47 +159,8 @@
 			</c:if>
 				</td>
 			</tr>
-			<tr>
-				<td align="left">${requestScope.id }</td>
-				<td align="left">${requestScope.id }</td>
-				<td align="left">${requestScope.id }</td>
-				<td align="left">${requestScope.id }</td>
-			</tr>
-
 		</tbody>
 	</table>
-
-	<p></p>
-
-	<table border="0" cellpadding="3" cellspacing="1" width="90%">
-		<tbody>
-			<tr>
-				<td align="left">
-					<div class="text_l">
-						<img src="../Img/sub_title.gif" width="10" height="14"
-							align="absmiddle" style="margin-right: 5px">Add New Record
-					</div>
-				</td>
-
-			</tr>
-
-		</tbody>
-	</table>
-
-	<form name=add method="post" action="Information_add.jsp">
-		<table cellpadding="0" cellspacing="0" border="0" width="50%">
-			<tr>
-			<tr>
-				<input type="hidden" name="id" type="text"
-					value="${requestScope.id }">
-				<input type="hidden" name="name" type="text"
-					value="${requestScope.name }">
-			</tr>
-			<input type="submit" value=" Add " class="form_bt_px16"
-				align="absmiddle">
-			</tr>
-		</table>
-	</form>
 
 	<p></p>
 
@@ -201,10 +175,10 @@ function searchFunc()
 	if(Search_info.hd_userid.value ==""){
 		alert("请输入userid！");
 	}
-	else if(Search_info.test_exam_date_from.value ==""){
+	else if(Search_info.search_date_from.value ==""){
 		alert("请输入fromDate！");	
 	}
-	else if(Search_info.test_exam_date_to.value ==""){
+	else if(Search_info.search_date_to.value ==""){
 		alert("请输入toDate！");	
 	}		
 	else{
@@ -216,8 +190,6 @@ function searchFunc()
 		<li><a href="../index.html">home</a></li>
 		<li><a href="../Pages/LOGIN.jsp">login</a></li>
 		<li><a href="../Pages/navigation.html">menu</a></li>
-		<li><a href="../Pages/about.html">about</a></li>
 
-	</ul>
 </body>
 </html>

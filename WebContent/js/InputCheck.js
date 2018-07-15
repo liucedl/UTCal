@@ -31,13 +31,13 @@ function UseridCheck() {
 		return true;
 	} else {
 		alert("Please input character or number");
-		document.forms[0].test_userid.focus();
+		document.forms[0].hd_userid.focus();
 		return false;
 	}
 }
 
 function DateCheck(id) {
-	if(id == "test_exam_date_from" || id == "test_exam_date_to" ){
+	if(id == "search_date_from" || id == "search_date_to" ){
 		if (document.getElementById(id).value == ""){
 				return true;
 		}								
@@ -129,8 +129,8 @@ function TestResultCheck() {
 }
 
 function DateCompare() {
-	if (document.getElementById("test_exam_date_from").value > document
-			.getElementById("test_exam_date_to").value) {
+	if (document.getElementById("search_date_from").value > document
+			.getElementById("search_date_to").value) {
 		alert("From date can not exceed To date");
 		return false;
 	}
@@ -138,12 +138,12 @@ function DateCompare() {
 }
 
 function CheckAllNumberSearch() {
-	var check = DateCheck("test_exam_date_from") && DateCheck("test_exam_date_to");
+	var check = DateCheck("search_date_from") && DateCheck("search_date_to");
 	return check;
 }
 
 function CheckAllResultAdd() {
-	var check = DateCheck("test_exam_date") && EmptyCheck("Language") && EmptyCheck("Class") && TestResultCheck() && DateCheck("test_update_date");
+	var check = DateCheck("search_date") && EmptyCheck("Language") && EmptyCheck("Class") && TestResultCheck() && DateCheck("test_update_date");
 	return check;
 }
 /*function CheckAll(id) {

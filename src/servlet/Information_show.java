@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.user.util.DBConnection;
+
 import DTO.InformationDTO;
 
 /*import DTO.Datebase;*/
@@ -41,9 +43,11 @@ public class Information_show extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userid = request.getParameter("hd_userid");
-		String fromDate = request.getParameter("test_exam_date_from");
-		String toDate = request.getParameter("test_exam_date_to");
+		String userid = "209671";
+	/*	String userid = request.getParameter("hd_userid");*/
+		String fromDate = request.getParameter("search_date_from");
+		String toDate = request.getParameter("search_date_to");
+
 		
 		if (fromDate.length() == 0){
 			fromDate = "0000-01-01";
@@ -63,7 +67,8 @@ public class Information_show extends HttpServlet {
 		try {
 			
 			Class.forName("com.mysql.jdbc.Driver");
-			con=DriverManager.getConnection("jdbc:mysql://localhost:3306/afls", "root", "zaq12wsx");
+			con=DBConnection.getConn();
+			/*con=DriverManager.getConnection("jdbc:mysql://localhost:3306/afls", "root", "zaq12wsx");*/
 			//con=DriverManager.getConnection(Datebase.getBluemixUrl(),Datebase.getBluemixUserName(),Datebase.getBluemixPassword());
 			
 			pre=con.prepareStatement(sql_user);
@@ -76,15 +81,15 @@ public class Information_show extends HttpServlet {
 			}
 			if(flag_user) 
 			{
-				//request.setAttribute("id",test_userid);
+				//request.setAttribute("id",search_userid);
 				/*request.getRequestDispatcher("LoginSuccessful").forward(request, response);*/
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 				
-				Date dt_test_exam_date_from = sdf.parse(fromDate);
-				Date dt_test_exam_date_to = sdf.parse(toDate);
-
-				List<InformationDTO> test_result = new ArrayList<InformationDTO>();	
-				ResultSet rs_overtime = overtime_query(userid,dt_test_exam_date_from,dt_test_exam_date_to,con);
+				Date dt_search_date_from = sdf.parse(fromDate);
+				Date dt_search_date_to = sdf.parse(toDate);
+				List<InformationDTO> search_result = new ArrayList<InformationDTO>();	
+				
+				ResultSet rs_overtime = overtime_query(userid,dt_search_date_from,dt_search_date_to,con);
 				
 				while(rs_overtime.next()){
 					InformationDTO informationdto = new InformationDTO();
@@ -93,10 +98,10 @@ public class Information_show extends HttpServlet {
 					informationdto.setHours(rs_overtime.getString("over_hours"));
 					informationdto.setType("workday");
 					//informationdto.setTest_comment(rs_test.getString("test_comment"));
-					test_result.add(informationdto);
+					search_result.add(informationdto);
 				}
 				
-				ResultSet rs_holiday = holiday_query(userid,dt_test_exam_date_from,dt_test_exam_date_to,con);
+				ResultSet rs_holiday = holiday_query(userid,dt_search_date_from,dt_search_date_to,con);
 				while(rs_overtime.next()){
 					InformationDTO informationdto = new InformationDTO();
 					informationdto.setUserid(userid);
@@ -104,13 +109,13 @@ public class Information_show extends HttpServlet {
 					informationdto.setHours(rs_holiday.getString("over_hours"));
 					informationdto.setType("tradeday");
 					//informationdto.setTest_comment(rs_test.getString("test_comment"));
-					test_result.add(informationdto);
+					search_result.add(informationdto);
 				}
 				
 				request.setAttribute("id",userid);
-				request.setAttribute("from", request.getParameter("test_exam_date_from"));
-				request.setAttribute("to", request.getParameter("test_exam_date_to"));
-				request.setAttribute("result", test_result);
+				request.setAttribute("from", request.getParameter("search_date_from"));
+				request.setAttribute("to", request.getParameter("search_date_to"));
+				request.setAttribute("result", search_result);
 				request.getRequestDispatcher("Information_show.jsp").forward(request, response);
 
 			}
@@ -150,16 +155,16 @@ public class Information_show extends HttpServlet {
 
 
 	// select overtime
-	private ResultSet overtime_query(String test_userid, Date test_exam_date_from, Date test_exam_date_to,Connection con) throws SQLException {
+	private ResultSet overtime_query(String search_userid, Date search_date_from, Date search_date_to,Connection con) throws SQLException {
 		String sql;
 		sql = "select * from afls.overtime where over_user_id = ? and over_date between ? and ?";
 	
 		PreparedStatement pre = con.prepareStatement(sql);
 		
-		java.sql.Date date_from = new java.sql.Date(test_exam_date_from.getTime());
-		java.sql.Date date_to = new java.sql.Date(test_exam_date_to.getTime());
-		pre.setString(1,test_userid);
-		//pre.setString(2,test_exam_date_from);
+		java.sql.Date date_from = new java.sql.Date(search_date_from.getTime());
+		java.sql.Date date_to = new java.sql.Date(search_date_to.getTime());
+		pre.setString(1,search_userid);
+		//pre.setString(2,search_date_from);
 		pre.setDate(2, date_from);
 		pre.setDate(3, date_to);
 		
@@ -168,16 +173,16 @@ public class Information_show extends HttpServlet {
 		
 	}
 	
-	private ResultSet holiday_query(String test_userid, Date test_exam_date_from, Date test_exam_date_to,Connection con) throws SQLException {
+	private ResultSet holiday_query(String search_userid, Date search_date_from, Date search_date_to,Connection con) throws SQLException {
 		// select holiday
 		String sql;
 		sql = "select * from afls.holiday where holi_user_id = ? and holi_date between ? and ?";
 		PreparedStatement pre = con.prepareStatement(sql);
 		
-		java.sql.Date date_from = new java.sql.Date(test_exam_date_from.getTime());
-		java.sql.Date date_to = new java.sql.Date(test_exam_date_to.getTime());
-		pre.setString(1,test_userid);
-		//pre.setString(2,test_exam_date_from);
+		java.sql.Date date_from = new java.sql.Date(search_date_from.getTime());
+		java.sql.Date date_to = new java.sql.Date(search_date_to.getTime());
+		pre.setString(1,search_userid);
+		//pre.setString(2,search_date_from);
 		pre.setDate(2, date_from);
 		pre.setDate(3, date_to);
 		
