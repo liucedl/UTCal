@@ -78,7 +78,7 @@ public class Information_add extends HttpServlet {
 				if (add_rc ==1){
 					request.setAttribute("id",userid);
 					request.setAttribute("msg","信息登陆成功！请点击【查询】获得更多信息。");
-					request.getRequestDispatcher("Information_Show.jsp").forward(request, response);
+					request.getRequestDispatcher("Information_show.jsp").forward(request, response);
 				}
 				
 				
@@ -132,7 +132,7 @@ public class Information_add extends HttpServlet {
 				if (add_rc ==1){
 					request.setAttribute("id",userid);
 					request.setAttribute("msg","信息登陆成功！请点击【查询】获得更多信息。");
-					request.getRequestDispatcher("Information_Show.jsp").forward(request, response);
+					request.getRequestDispatcher("Information_show.jsp").forward(request, response);
 				}
 				
 				

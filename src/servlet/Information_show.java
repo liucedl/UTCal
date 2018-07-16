@@ -43,7 +43,7 @@ public class Information_show extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userid = "209671";
+		String userid = "209670";
 	/*	String userid = request.getParameter("hd_userid");*/
 		String fromDate = request.getParameter("search_date_from");
 		String toDate = request.getParameter("search_date_to");
