@@ -135,7 +135,7 @@
 											class="bgcolor_yellow2">Delete</td>
 									</tr>
 
-									<c:forEach var="testdto" items="${result }">
+									<c:forEach var="informationdto" items="${result }">
 										<tr>
 											<td align="center">${informationdto["userid"] }</td>
 											<td align="center">${informationdto["date"] }</td>
