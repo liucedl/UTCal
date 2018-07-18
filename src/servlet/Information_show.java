@@ -102,12 +102,12 @@ public class Information_show extends HttpServlet {
 				}
 				
 				ResultSet rs_holiday = holiday_query(userid,dt_search_date_from,dt_search_date_to,con);
-				while(rs_overtime.next()){
+				while(rs_holiday.next()){
 					InformationDTO informationdto = new InformationDTO();
 					informationdto.setUserid(userid);
-					informationdto.setDate(rs_holiday.getDate("over_date").toString());
-					informationdto.setHours(rs_holiday.getString("over_hours"));
-					informationdto.setType("tradeday");
+					informationdto.setDate(rs_holiday.getDate("holi_date").toString());
+					informationdto.setHours(rs_holiday.getString("holi_hours"));
+					informationdto.setType("vocation");
 					//informationdto.setTest_comment(rs_test.getString("test_comment"));
 					search_result.add(informationdto);
 				}

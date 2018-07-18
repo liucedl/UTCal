@@ -100,9 +100,11 @@
     </tr>
 </table>
 </form>
-
+	<p></p>
+	<hr align="left" size="1" class="bgcolor_gray2" width="80%">
+	<p></p>
    
-</table>
+
 
 	<table>
 		<tbody>
@@ -111,7 +113,7 @@
 					<%
           	pageContext.setAttribute("list_size",-1);
           	List<InformationDTO> information_result =  (ArrayList<InformationDTO>)request.getAttribute("result"); 
-          	//int list_size = test_result.size();
+          	
           	if(information_result != null){
           	pageContext.setAttribute("list_size",information_result.size());
           	}
@@ -143,10 +145,10 @@
 											<td align="center">${informationdto["type"] }</td>
 											<td align="center"><input type="button"
 												class="form_bt_px14" value="Update"
-												onclick="doUpdate('${id}','${informationdto["date"] }','${informationdto["hours"] }','${informationdto["type"] }')"></td>
+												onclick="doUpdate('${informationdto["userid"] }','${informationdto["date"] }','${informationdto["type"] }')"></td>
 											<td align="center"><input type="button"
 												class="form_bt_px14" value="Delete"
-												onclick="doDelete('${id}','${informationdto["date"] }','${informationdto["type"] }')"></td>
+												onclick="doDelete('${informationdto["userid"] }','${informationdto["date"] }','${informationdto["type"] }')"></td>
 										</tr>
 									</c:forEach>
 								</tbody>
@@ -164,12 +166,12 @@
 
 	<p></p>
 
-	<script type="text/javascript" src="../JS/InputCheck.js"></script>
-	<script src="../js/jquery.min.js"></script>
+	<script src="../js/button_check.js"></script>
+	<script type="text/javascript" src="../js/InputCheck.js"></script>
+<!-- 	<script src="../js/jquery.min.js"></script>
 	<script src="../js/amazeui.min.js" charset="utf-8"></script>
 	<script src="../js/timedropper.js" charset="utf-8"></script>
-	<script src="../js/calendar.js" charset="utf-8"></script>
-	<script type="text/javascript">
+	<script src="../js/calendar.js" charset="utf-8"></script> -->
 function searchFunc()
 {
 	if(Search_info.hd_userid.value ==""){

@@ -1,25 +1,25 @@
 	function is_submit(value) {
 		switch (value) {
         case "update"://Information_show.jsp
-        	document.Result_mod.action = "Information_update";
-        	Result_mod.submit();
+        	document.result_form.action = "Information_update";
+        	result_form.submit();
         case "delete":
-        	document.Result_mod.action = "Information_delete";
-        	Result_mod.submit();
+        	document.result_form.action = "Information_delete";
+        	result_form.submit();
 		default:
 			break;
 		}
 
 	}
 	
-	function doUpdate(id,date) {
-		information_form.action = "Information_update.jsp?id="+id+"&date="+date+"";
-		information_form.submit();
+	function doUpdate(id,date,type) {
+		result_form.action = "Information_update.jsp?id="+id+"&date="+date+"&type="+type+"";
+		result_form.submit();
 			
 	}
 	
-	function doDelete(id,data) {
-		information.action = "Information_delete.jsp?id="+id+"&date="+date+"";
-		information.submit();
+	function doDelete(id,date,type) {
+		result_form.action = "Information_delete.jsp?id="+id+"&date="+date+"&type="+type+"";
+		result_form.submit();
 			
 	}

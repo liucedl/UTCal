@@ -43,7 +43,7 @@
 				<div class="hd-type-select">
 					<select data-am-selected name="hd_type_option" class="am-u-sm-10" >
 					  <option value="workday" selected>加班</option>
-					  <option value="tradeday">休假</option>
+					  <option value="vocation">休假</option>
 					</select>
 				</div>
 			</div>
@@ -96,7 +96,7 @@
 				Add_Form.submit();
 			}
 		}
-		else if(Add_Form.hd_type_option.value =="tradeday"){
+		else if(Add_Form.hd_type_option.value =="vocation"){
 			if(Add_Form.hd_hours.value ==""){
 				alert("请输入休假时数！");	
 			}

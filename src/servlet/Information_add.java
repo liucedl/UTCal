@@ -133,6 +133,7 @@ public class Information_add extends HttpServlet {
 					request.setAttribute("id",userid);
 					request.setAttribute("msg","信息登陆成功！请点击【查询】获得更多信息。");
 					request.getRequestDispatcher("Information_show.jsp").forward(request, response);
+					
 				}
 				
 				
