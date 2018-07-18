@@ -62,7 +62,7 @@
 		<table cellpadding="0" cellspacing="0" border="0" width="50%">
 			<tr>
 				<td align="center"><input type="submit" value=" Search "
-					class="form_bt_px16" onclick="searchFunc()" type="button"
+					class="form_bt_px16" onclick="" type="button"
 					align="absmiddle"></td>
 			</tr>
 		</table>
@@ -85,9 +85,8 @@
         <td width="125" height="10" align="left" class="bgcolor_yellow2">Name : </td>
         <td align="left">${requestScope.name }</td>
     </tr>
-
     </tbody>
-    
+ </table>   
  <form name=add method="post" action="Information_add.jsp" >
 <table cellpadding="0" cellspacing="0" border="0" width="50%">
     <tr>
@@ -95,6 +94,7 @@
             <input type="hidden" name="id" type="text" value ="${requestScope.id }">
             <input type="hidden" name="name" type="text" value ="${requestScope.name }">
         </tr>
+        
           <input type="submit" value=" Add " class="form_bt_px16"
                  align="absmiddle" >
     </tr>
@@ -113,10 +113,12 @@
 					<%
           	pageContext.setAttribute("list_size",-1);
           	List<InformationDTO> information_result =  (ArrayList<InformationDTO>)request.getAttribute("result"); 
+          	/* String current_ut = (String)request.getAttribute("ut"); */
           	
           	if(information_result != null){
           	pageContext.setAttribute("list_size",information_result.size());
           	}
+    	
           	%> <c:if test="${list_size > 0 }">
 						<form name=result_form method="post" action="">
 							<table cellpadding="4" cellspacing="1" border="0"
@@ -168,25 +170,12 @@
 
 	<script src="../js/button_check.js"></script>
 	<script type="text/javascript" src="../js/InputCheck.js"></script>
-<!-- 	<script src="../js/jquery.min.js"></script>
+	<script src="../js/jquery.min.js"></script>
 	<script src="../js/amazeui.min.js" charset="utf-8"></script>
 	<script src="../js/timedropper.js" charset="utf-8"></script>
-	<script src="../js/calendar.js" charset="utf-8"></script> -->
-function searchFunc()
-{
-	if(Search_info.hd_userid.value ==""){
-		alert("请输入userid！");
-	}
-	else if(Search_info.search_date_from.value ==""){
-		alert("请输入fromDate！");	
-	}
-	else if(Search_info.search_date_to.value ==""){
-		alert("请输入toDate！");	
-	}		
-	else{
-		Search_info.submit();
-	} 
-}
+	<script src="../js/calendar.js" charset="utf-8"></script>
+	<script type="text/javascript">	
+
 </script>
 	<ul id="new1">
 		<li><a href="../index.html">home</a></li>

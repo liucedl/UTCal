@@ -61,7 +61,6 @@ public class Information_delete extends HttpServlet {
 				String sql_del = "delete from afls.overtime where over_user_id ='"+userid+"' and over_date ='"+str_search_date+"'";
 				int del_rc=stmt.executeUpdate(sql_del);
 				
-			//System.out.println(add_rc);
 				if (del_rc ==1){
 				request.setAttribute("id",userid);
 				request.setAttribute("msg","delete record from overtime successful! Press <strong>[Search]</strong> to get more information.");
@@ -69,10 +68,9 @@ public class Information_delete extends HttpServlet {
 				}
 				}
 			else{
-				String sql_del2 = "'delete from afls.holiday where holi_user_id ='"+userid+"' and holi_date ='"+str_search_date ;
+				String sql_del2 = "delete from afls.holiday where holi_user_id ='"+userid+"' and holi_date ='"+str_search_date+"'";
 				int del_rc2=stmt.executeUpdate(sql_del2);
 				
-			//System.out.println(add_rc);
 				if (del_rc2 ==1){
 				request.setAttribute("id",userid);
 				request.setAttribute("msg","delete record from holiday successful! Press <strong>[Search]</strong> to get more information.");
