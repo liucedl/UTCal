@@ -37,7 +37,7 @@
     <constant name="struts.locale" value="zh_CN"></constant>  
     <package name="UTCal" namespace="/" extends="struts-default">  
         <action name="loginAction" class="com.user.action.UserAction" method="login">  
-            <result name="success">/page/edit2.jsp</result>  
+            <result name="success" type="redirect">/Control/Information_add.jsp</result>  
             <result name="error">/page/error.jsp</result>  
             <result name="input">/page/Login.jsp</result>  
         </action>  
@@ -47,7 +47,8 @@
             <result name="input">/page/Register.jsp</result>  
         </action> 
         <action name="getUserByIdAction" class="com.user.action.UserAction" method="getUserById">
-   		<result name="userList">/page/edit.jsp</result>
+   		<result name="success">/page/edit.jsp</result>
+   		<result name="error">/page/Register.jsp</result>  
 		</action> 
     </package>  
 </struts>    
