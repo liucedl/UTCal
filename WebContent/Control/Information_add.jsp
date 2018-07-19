@@ -20,7 +20,7 @@
 <!--录入信息口-->
 <div class="am-modal am-modal-no-btn  hd_info_modal" tabindex="-1" id="calendar-modal-1">
   <div class="am-modal-dialog radius">
-	<div class="am-modal-hd">信息登陆
+	<div class="am-modal-hd">信息录入
 	  <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
 	</div>
 	<div class="am-modal-bd">
@@ -102,6 +102,9 @@
 			}
 			else if(Add_Form.hd_hours.value > 8){
 				alert("休假时数不得超过8小时!");	
+			}
+			else if(Add_Form.hd_hours.value % 4 != 0){
+				alert("休假时数只可是4小时或8小时!");	
 			}
 			else{
 				Add_Form.submit();

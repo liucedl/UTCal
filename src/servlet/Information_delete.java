@@ -63,7 +63,7 @@ public class Information_delete extends HttpServlet {
 				
 				if (del_rc ==1){
 				request.setAttribute("id",userid);
-				request.setAttribute("msg","delete record from overtime successful! Press <strong>[Search]</strong> to get more information.");
+				request.setAttribute("msg","该记录已从加班系统中成功删除！点击 <strong>[查询]</strong> 获得更多信息。");
 				request.getRequestDispatcher("Information_show.jsp").forward(request, response);
 				}
 				}
@@ -73,7 +73,7 @@ public class Information_delete extends HttpServlet {
 				
 				if (del_rc2 ==1){
 				request.setAttribute("id",userid);
-				request.setAttribute("msg","delete record from holiday successful! Press <strong>[Search]</strong> to get more information.");
+				request.setAttribute("msg","该记录已从休假系统中成功删除！点击 <strong>[查询]</strong> 获得更多信息。");
 				request.getRequestDispatcher("Information_show.jsp").forward(request, response);
 				}
 			}
@@ -85,10 +85,6 @@ public class Information_delete extends HttpServlet {
 			e.printStackTrace();
 		} catch (SQLException e) {
 			// Duplicate entry
-			/*if (e.getSQLState().equals("23000")){
-				request.setAttribute("msg","This record already exists. Please reenter or Update!");
-				request.getRequestDispatcher("Information_Add.jsp").forward(request, response);
-			}else{*/
 			e.printStackTrace();
 			
 		}

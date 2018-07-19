@@ -116,7 +116,7 @@ public class Information_show extends HttpServlet {
 					informationdto.setUserid(userid);
 					informationdto.setDate(rs_overtime.getDate("over_date").toString());
 					informationdto.setHours(rs_overtime.getString("over_hours"));
-					informationdto.setType("workday");
+					informationdto.setType("加班");
 					search_result.add(informationdto);
 					overtime_hours_sum=overtime_hours_sum+Integer.parseInt(informationdto.getHours());
 				}
@@ -127,7 +127,7 @@ public class Information_show extends HttpServlet {
 					informationdto.setUserid(userid);
 					informationdto.setDate(rs_holiday.getDate("holi_date").toString());
 					informationdto.setHours(rs_holiday.getString("holi_hours"));
-					informationdto.setType("vocation");
+					informationdto.setType("休假");
 					search_result.add(informationdto);
 					vocation_hours_sum=vocation_hours_sum+Integer.parseInt(informationdto.getHours());
 				}
@@ -142,11 +142,14 @@ public class Information_show extends HttpServlet {
 				int ut_a = workday_count * 8 - desi_Count * 8 - vocation_hours_sum + overtime_hours_sum;
 				int ut_b = workday_count * 8;
 				float ut = ut_a*100/ut_b;
-				System.out.println("ut_a="+ut_a);
+/*				System.out.println("ut_a="+ut_a);
 				System.out.println("ut_b="+ut_b);
-				System.out.println("ut="+ut);
+				System.out.println("ut="+ut);*/
 				
-				/*request.setAttribute("ut",ut);*/
+				request.setAttribute("vocation",vocation_hours_sum);
+				request.setAttribute("ot",overtime_hours_sum);
+				request.setAttribute("desi",desi_Count);
+				request.setAttribute("ut",ut);
 				
 				request.setAttribute("id",userid);
 				request.setAttribute("from", request.getParameter("search_date_from"));
@@ -157,7 +160,7 @@ public class Information_show extends HttpServlet {
 				
 			}
 			else //user not exists
-			{request.setAttribute("msg","*Userid not exists in userdb");
+			{request.setAttribute("msg","*该用户不存在！");
 			//System.out.println(request.getAttribute("msg"));
 			request.getRequestDispatcher("Information_show.jsp").forward(request, response);
 			}

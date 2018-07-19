@@ -65,8 +65,6 @@ public class Information_add extends HttpServlet {
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
 				con=DBConnection.getConn();
-				//con=DriverManager.getConnection("jdbc:mysql://localhost:3306/afls", "root", "zaq12wsx");
-				//con=DriverManager.getConnection(Datebase.getBluemixUrl(),Datebase.getBluemixUserName(),Datebase.getBluemixPassword());				
 				pre=con.prepareStatement(sql);
 				pre.setString(1,userid);
 				pre.setDate(2,sql_upddate);
@@ -77,7 +75,7 @@ public class Information_add extends HttpServlet {
 				//System.out.println(add_rc);
 				if (add_rc ==1){
 					request.setAttribute("id",userid);
-					request.setAttribute("msg","信息登陆成功！请点击【查询】获得更多信息。");
+					request.setAttribute("msg","加班信息录入成功！请点击 <strong>【查询】 </strong> 获得更多信息。");
 					request.getRequestDispatcher("Information_show.jsp").forward(request, response);
 				}
 				
@@ -89,7 +87,7 @@ public class Information_add extends HttpServlet {
 				// Duplicate entry
 				if (e.getSQLState().equals("23000")){
 					request.setAttribute("id",userid);
-					request.setAttribute("msg","该日期的记录已存在。请确认！");
+					request.setAttribute("msg","该日期的记录在加班系统中已存在。请确认！");
 					request.getRequestDispatcher("Information_add.jsp").forward(request, response);
 					//request.getRequestDispatcher("Information_Show.jsp").forward(request, response);
 				}else{
@@ -118,9 +116,6 @@ public class Information_add extends HttpServlet {
 			try {
 				Class.forName("com.mysql.jdbc.Driver");
 				con=DBConnection.getConn();
-				//con=DriverManager.getConnection("jdbc:mysql://localhost:3306/afls", "root", "root");
-				//con=DriverManager.getConnection(Datebase.getBluemixUrl(),Datebase.getBluemixUserName(),Datebase.getBluemixPassword());
-				
 				pre=con.prepareStatement(sql);
 				pre.setString(1,userid);
 				pre.setDate(2,sql_upddate);
@@ -131,7 +126,7 @@ public class Information_add extends HttpServlet {
 				//System.out.println(add_rc);
 				if (add_rc ==1){
 					request.setAttribute("id",userid);
-					request.setAttribute("msg","信息登陆成功！请点击【查询】获得更多信息。");
+					request.setAttribute("msg","休假信息录入成功！请点击 <strong>【查询】 </strong> 获得更多信息。");
 					request.getRequestDispatcher("Information_show.jsp").forward(request, response);
 					
 				}
@@ -144,7 +139,7 @@ public class Information_add extends HttpServlet {
 				// Duplicate entry
 				if (e.getSQLState().equals("23000")){
 					request.setAttribute("id",userid);
-					request.setAttribute("msg","该日期的记录已存在。请确认！");
+					request.setAttribute("msg","该日期的记录在休假系统中已存在。请确认！");
 					request.getRequestDispatcher("Information_add.jsp").forward(request, response);
 					//request.getRequestDispatcher("Information_Show_Holiday.jsp").forward(request, response);
 				}else{
