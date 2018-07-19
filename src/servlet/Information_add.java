@@ -88,8 +88,7 @@ public class Information_add extends HttpServlet {
 				if (e.getSQLState().equals("23000")){
 					request.setAttribute("id",userid);
 					request.setAttribute("msg","该日期的记录在加班系统中已存在。请确认！");
-					request.getRequestDispatcher("Information_add.jsp").forward(request, response);
-					//request.getRequestDispatcher("Information_Show.jsp").forward(request, response);
+					request.getRequestDispatcher("Information_show.jsp").forward(request, response);
 				}else{
 				e.printStackTrace();
 				}
@@ -140,8 +139,7 @@ public class Information_add extends HttpServlet {
 				if (e.getSQLState().equals("23000")){
 					request.setAttribute("id",userid);
 					request.setAttribute("msg","该日期的记录在休假系统中已存在。请确认！");
-					request.getRequestDispatcher("Information_add.jsp").forward(request, response);
-					//request.getRequestDispatcher("Information_Show_Holiday.jsp").forward(request, response);
+					request.getRequestDispatcher("Information_show.jsp").forward(request, response);
 				}else{
 				e.printStackTrace();
 				}
