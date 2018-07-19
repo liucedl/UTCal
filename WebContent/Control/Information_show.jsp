@@ -101,6 +101,11 @@
         <td align="left">${requestScope.ot }</td>
         <td width="125" height="10" align="left" class="bgcolor_yellow2">小时</td>
     </tr>
+    <tr>
+        <td width="125" height="10" align="left" class="bgcolor_yellow2">总工作小时数 : </td>
+        <td align="left">${requestScope.workhours }</td>
+        <td width="125" height="10" align="left" class="bgcolor_yellow2">小时</td>
+    </tr>
      <tr>
         <td width="125" height="10" align="left" class="bgcolor_yellow2">法定假日天数 : </td>
         <td align="left">${requestScope.desi }</td>

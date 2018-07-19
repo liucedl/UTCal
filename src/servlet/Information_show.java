@@ -150,6 +150,7 @@ public class Information_show extends HttpServlet {
 				request.setAttribute("ot",overtime_hours_sum);
 				request.setAttribute("desi",desi_Count);
 				request.setAttribute("ut",ut);
+				request.setAttribute("workhours",ut_b);
 				
 				request.setAttribute("id",userid);
 				request.setAttribute("from", request.getParameter("search_date_from"));
