@@ -46,19 +46,29 @@ public class Information_show extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String userid = "209670";
-	/*	String userid = request.getParameter("hd_userid");*/
+	/*	String userid = "209670";*/
+		String userid = request.getParameter("hd_userid");
 		String fromDate = request.getParameter("search_date_from");
 		String toDate = request.getParameter("search_date_to");
-
+		
+		//获取当年的年份
+		Date now = new Date();
+        Calendar c = Calendar.getInstance();
+        int year = c.get(Calendar.YEAR); 
+        SimpleDateFormat sf=new SimpleDateFormat("yyyy-MM-dd");
+        
 		
 		if (fromDate.length() == 0){
-			fromDate = "0000-01-01";
+			fromDate = year+"-01-01";
 		}
 		
 		if (toDate.length() == 0){
-			toDate ="9999-12-31"	;
+			toDate =sf.format(now);
 		}
+		
+		request.setAttribute("fromDate",fromDate);
+		request.setAttribute("toDate",toDate);
+		
 		//user check
 		String sql_user="select * from afls.user where user_id=?";
 			
@@ -135,9 +145,15 @@ public class Information_show extends HttpServlet {
 				System.out.println("vocation_hours_sum="+vocation_hours_sum);*/
 				
 				//workday calculate
-				int workday_count = workdaycalculate(dt_search_date_from,dt_search_date_to);
-				/*System.out.println("workday_count="+workday_count);*/
-				
+				int workday_count=0;
+		        if (dt_search_date_from.after(dt_search_date_to)){
+		        	request.setAttribute("id",userid);
+		        	request.setAttribute("msg","日期范围非法！");
+		        	request.getRequestDispatcher("Information_show.jsp").forward(request, response);
+		        	}else{
+		        		workday_count = workdaycalculate(dt_search_date_from,dt_search_date_to);
+		        		/*System.out.println("workday_count="+workday_count);*/
+		        	}				
 				//UT calculate
 				int ut_a = workday_count * 8 - desi_Count * 8 - vocation_hours_sum + overtime_hours_sum;
 				int ut_b = workday_count * 8;
@@ -228,47 +244,44 @@ public class Information_show extends HttpServlet {
 		
 	}
 	//workday calculate
-	private int workdaycalculate(Date search_date_from, Date search_date_to)  {
-		int rs_workdays = 0;
+	private int workdaycalculate(Date search_date_from, Date search_date_to) {
+			int rs_workdays = 0;
 	        Date begDate = search_date_from;
 	        Date endDate = search_date_to;
-	        if (begDate.after(endDate))
-	            System.out.println("日期范围非法");
-	        // 总天数
-	        int days = (int) ((endDate.getTime() - begDate.getTime()) / (24 * 60 * 60 * 1000)) + 1;
-	        // 总周数
-	        int weeks = days / 7;
-	        // 总周数
-	        if (days % 7 == 0) {
-	            rs_workdays = days - 2 * weeks;
-	        }
-	        else {
-	            Calendar begCalendar = Calendar.getInstance();
-	            Calendar endCalendar = Calendar.getInstance();
-	            begCalendar.setTime(begDate);
-	            endCalendar.setTime(endDate);
-	            // 周日为1，周六为7
-	            int beg = begCalendar.get(Calendar.DAY_OF_WEEK);
-	            int end = endCalendar.get(Calendar.DAY_OF_WEEK);
-	            if (beg > end) {
-	                rs_workdays = days - 2 * (weeks + 1);
-	            } else if (beg < end) {
-	                if (end == 7) {
-	                    rs_workdays = days - 2 * weeks - 1;
-	                } else {
-	                    rs_workdays = days - 2 * weeks;
-	                }
-	            } else {
-	                if (beg == 1 || beg == 7) {
-	                    rs_workdays = days - 2 * weeks - 1;
-	                } else {
-	                    rs_workdays = days - 2 * weeks;
-	                }
-	            }
-	        }
-			return rs_workdays;
+	            	// 总天数
+	            	int days = (int) ((endDate.getTime() - begDate.getTime()) / (24 * 60 * 60 * 1000)) + 1;
+	            	// 总周数
+	            	int weeks = days / 7;
+	            	// 总周数
+	            	if (days % 7 == 0) {
+	            		rs_workdays = days - 2 * weeks;
+	            	}
+	            	else {
+	            		Calendar begCalendar = Calendar.getInstance();
+	            		Calendar endCalendar = Calendar.getInstance();
+	            		begCalendar.setTime(begDate);
+	            		endCalendar.setTime(endDate);
+	            		// 周日为1，周六为7
+	            		int beg = begCalendar.get(Calendar.DAY_OF_WEEK);
+	            		int end = endCalendar.get(Calendar.DAY_OF_WEEK);
+	            		if (beg > end) {
+	            			rs_workdays = days - 2 * (weeks + 1);
+	            		} else if (beg < end) {
+	            			if (end == 7) {
+	            				rs_workdays = days - 2 * weeks - 1;
+	            			} else {
+	            				rs_workdays = days - 2 * weeks;
+	            			}
+	            		} else {
+	            			if (beg == 1 || beg == 7) {
+	            				rs_workdays = days - 2 * weeks - 1;
+	            			} else {
+	            				rs_workdays = days - 2 * weeks;
+	            			}
+	            		}
+	            	}
+
+	return rs_workdays;
 	}
-			
-
-
 }
+			

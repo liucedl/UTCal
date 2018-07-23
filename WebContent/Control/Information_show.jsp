@@ -23,7 +23,7 @@
 								<tr>
 									<td width="125" height="10" align="right"
 										class="bgcolor_yellow2">工号：</td>
-									<td align="left"><input name="hd_userid" value="${id }"
+									<td align="left"><input name="hd_userid" value="${param.id }" 
 										type="text" onfocus="this.style.backgroundColor='#FEFCD8'"
 										onblur="this.style.backgroundColor='#FFFFFF'"
 										onchange="DateCheck(this.id)" maxlength="6"
@@ -46,7 +46,7 @@
 										class="bgcolor_yellow2">开始日期：</td>
 									<td align="left">
 									<input id="search_date_from"
-										name="search_date_from" type="date" placeholder="yyyy-mm-dd" 
+										name="search_date_from" type="date" placeholder="yyyy-mm-dd" value="${fromDate }"
 										onfocus="this.style.backgroundColor='#FEFCD8'"
 										onblur="this.style.backgroundColor='#FFFFFF'"
 										onchange="DateCheck(this.id)" maxlength="10" size="40"
@@ -56,7 +56,7 @@
 									<td width="125" height="10" align="right"
 										class="bgcolor_yellow2">结束日期：</td>
 									<td align="left"><input id="search_date_to" 
-										name="search_date_to" type="date" placeholder="yyyy-mm-dd"
+										name="search_date_to" type="date" placeholder="yyyy-mm-dd"value="${toDate }"
 										onfocus="this.style.backgroundColor='#FEFCD8'"
 										onblur="this.style.backgroundColor='#FFFFFF'"
 										onchange="DateCheck(this.id)" maxlength="10" size="40"

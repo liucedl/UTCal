@@ -37,8 +37,8 @@ public class Information_add extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		/*String userid = request.getParameter("hd_userid");*/
-		String userid = "209670";
+		String userid = request.getParameter("hd_userid");
+		/*String userid = "209670";*/
 		String updtype = request.getParameter("hd_type_option");
 		String str_upddate = request.getParameter("hd_date");
 		String updhours = request.getParameter("hd_hours");
