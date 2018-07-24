@@ -37,8 +37,8 @@
 			<div class="hd-work-block">
 				<label class="hd-type-label" >工号:</label>
 				<div class="am-form-group am-form-icon">
-				<!-- <input name="hd_userid" type="text" class="am-form-field" value=""></div> -->
-				<input type="text" name="hd_userid" class="am-form-field" value="${userid}" disabled="true"></div> 
+				<input name="hd_userid" type="text" class="am-form-field" value="${userid}" readonly="readonly"></div>
+				<%-- <input type="text" name="hd_userid" class="am-form-field" value="${userid}" disabled="true"></div>  --%>
 			</div> 
 			<div class="stone"></div>
 		</div> 

@@ -38,10 +38,13 @@ public class Information_add extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String userid = request.getParameter("hd_userid");
+		//String userid = (String)request.getAttribute("hd_userid");
+		System.out.println(userid);
 		/*String userid = "209670";*/
 		String updtype = request.getParameter("hd_type_option");
 		String str_upddate = request.getParameter("hd_date");
 		String updhours = request.getParameter("hd_hours");
+		System.out.println(updhours);
 		//string date -> sql date
 				SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 				
