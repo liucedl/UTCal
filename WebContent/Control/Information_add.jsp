@@ -3,6 +3,12 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.Date" %>
 <%@page import="java.text.SimpleDateFormat" %>
+ <%  
+    String path = request.getContextPath();  
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
+    System.out.println(basePath);
+    System.out.println(request.getAttribute("userid"));
+    %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,10 +16,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="x-ua-compatible" content="IE=9" />
 <title>UT Calculate System----Add</title>
-<link rel="stylesheet" type="text/css" href="../css/font-awesome.min.css">
-<link rel="stylesheet" href="../css/calendar.css">
-<link rel="stylesheet" href="../css/amazeui.min.css">
-<link rel="stylesheet" href="../css/timedropper.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/font-awesome.min.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/calendar.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/amazeui.min.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/timedropper.css">
 </head>
 <body><script src="/demos/googlegg.js"></script>
 <div id="div1"></div>
@@ -32,7 +38,7 @@
 				<label class="hd-type-label" >工号:</label>
 				<div class="am-form-group am-form-icon">
 				<!-- <input name="hd_userid" type="text" class="am-form-field" value=""></div> -->
-				<input type="text" name="hd_userid" class="am-form-field" value="${param.id }" disabled="true"></div> 
+				<input type="text" name="hd_userid" class="am-form-field" value="${userid}" disabled="true"></div> 
 			</div> 
 			<div class="stone"></div>
 		</div> 
@@ -117,10 +123,10 @@
 	
 	</script>
 
-<script src="../js/jquery.min.js"></script>
-<script src="../js/amazeui.min.js" charset="utf-8"></script>
-<script src="../js/timedropper.js" charset="utf-8"></script>
-<script src="../js/calendar.js" charset="utf-8"></script>
+<script src="<%=basePath%>js/jquery.min.js"></script>
+<script src="<%=basePath%>js/amazeui.min.js" charset="utf-8"></script>
+<script src="<%=basePath%>js/timedropper.js" charset="utf-8"></script>
+<script src="<%=basePath%>js/calendar.js" charset="utf-8"></script>
 <script type="text/javascript">
 	/*日历*/
 	loading_calendar("div1","en");
