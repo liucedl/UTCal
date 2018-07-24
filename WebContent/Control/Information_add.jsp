@@ -31,7 +31,7 @@
 	</div>
 	<div class="am-modal-bd">
 	  <div class="am-margin-sm">
-		<form action="Information_add" name="Add_Form" class="am-form am-form-inline" method="post">
+		<form action="<%=basePath%>/Control/Information_add" name="Add_Form" class="am-form am-form-inline" method="post">
 		
 		  <div class="hd-work-type">
 			<div class="hd-work-block">
