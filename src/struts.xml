@@ -37,7 +37,7 @@
     <constant name="struts.locale" value="zh_CN"></constant>  
     <package name="UTCal" namespace="/" extends="struts-default">  
         <action name="loginAction" class="com.user.action.UserAction" method="login">  
-            <result name="success" type="redirect">/Control/Information_add.jsp</result>  
+            <result name="success">/Control/Information_add.jsp</result>  
             <result name="error">/page/error.jsp</result>  
             <result name="input">/page/Login.jsp</result>  
         </action>  
