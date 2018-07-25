@@ -67,12 +67,11 @@
               //      System.out.println(user.getAuthority());  
               //  }  
                 //准备  
-                String sql_userCheck="INSERT INTO user (user.user_id,user.user_password,user.user_name,user.user_sex,user.user_dept,user.user_project,user.user_manager_id,user.user_authority) VALUES(?,?,null,null,null,null,null,?)";  
+                String sql_userCheck="INSERT INTO user (user.user_id,user.user_password,user.user_name,user.user_sex,user.user_dept,user.user_project,user.user_manager_id,user.user_authority) VALUES(?,?,null,null,null,null,null,null)";  
                 pstmt = conn.prepareStatement(sql_userCheck);  
                 pstmt.setString(1, user.getId());  
                 pstmt.setString(2, user.getPassword());  
-                //pstmt.setString(3, user.getAuthority());  
-                pstmt.setString(3, "1"); 
+              //  pstmt.setString(3, user.getAuthority());  
                 i = pstmt.executeUpdate();  
             }catch(SQLException e){  
                 System.out.println("注册错误");  
@@ -84,29 +83,33 @@
             return i;  
         }  
         
-    	public User getUserById() {
-    		User  user = new User();  
+    	public User getUserById(String id) {
     		//查询SQL
-    		String sql = " select * from user where name =  "+user.getId();
-    		
+    		String sql = " select * from user where user_id =?";
+    		System.out.println(sql); 
     		try{
     			//获得数据库连接
     			conn = DBConnection.getConn();   			
     			//编译执行sql文
     			pstmt = conn.prepareStatement(sql);
+        		pstmt.setString(1, id); 
     			//获查询结果集
     			rs = pstmt.executeQuery();
     			if(rs.next()){
     				//实例化用户信息
-    								
+    				user = new User();  				
     				//添加用户信息
-    				user.setId(rs.getString("id"));
-    				user.setUserName(rs.getString("name"));
-    				user.setAuthority(rs.getString("authority"));
-    				user.setSex(rs.getString("sex"));
-    				user.setDept(rs.getString("dept"));
-    				user.setProject(rs.getString("project"));
-    				user.setManager_id(rs.getString("managerid"));	
+    				user.setId(rs.getString("user_id"));
+    				user.setUserName(rs.getString("user_name"));
+    				user.setPassword(rs.getString("user_password"));
+    				user.setSex(rs.getString("user_sex"));
+    				user.setDept(rs.getString("user_dept"));
+    				user.setProject(rs.getString("user_project"));
+    				user.setManager_id(rs.getString("user_manager_id"));	
+    			 	System.out.println("===============================yzy");
+    	        	System.out.println(user.getName());
+    	        	System.out.println(user.getId());
+    	        	System.out.println("password" + user.getPassword());
     			}
     		}catch(Exception ex)
     		{
@@ -123,10 +126,10 @@
     	}
     	//修改用户信息
     	@Override
-    	public int updateUser(User user) {
+    	public int updateById(User user) {
     		int result;	
     		//修改sql文：根据用户id去查询用户信息
-    		String sql = " update user set user.user_password=?,user.user_name=?,user.user_sex=?,user.user_dept=?,user.user_project=?,user.user_manager_id=?,user.user_authority=? where id ="+user.getId();
+    		String sql = " update user set user.user_password=?,user.user_name=?,user.user_sex=?,user.user_dept=?,user.user_project=?,user.user_manager_id=? where user.user_id =?";
     		try
     		{
     			//获得数据库连接
@@ -140,7 +143,17 @@
     			pstmt.setString(4, user.getDept());
     			pstmt.setString(5, user.getProject());
     			pstmt.setString(6, user.getManagerid());
-    			pstmt.setString(7, user.getAuthority());
+    		//	pstmt.setString(7, user.getAuthority());
+    			pstmt.setString(7, user.getId());
+    		 	System.out.println("===============================updateById");
+	        	System.out.println("password" + user.getPassword());
+	        	System.out.println("Name"+user.getName());
+	        	System.out.println("Sex"+user.getSex());
+	        	System.out.println("Dept"+user.getDept());
+	        	System.out.println("Project"+user.getProject());
+	        	System.out.println("Managerid"+user.getManagerid());
+	        	System.out.println("id" + user.getId());
+
     			//执行修改
     			result = pstmt.executeUpdate();
     			if(result != 0)

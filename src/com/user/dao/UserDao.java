@@ -15,7 +15,8 @@
         //用户注册  
         public int Register(User user);
         //用户更新
-        public int updateUser(User user);  
+        public int updateById(User user);  
         //用户查询
-        public User getUserById(); 
+        public User getUserById(String id); 
+        
     }  
