@@ -20,8 +20,30 @@
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/calendar.css">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/amazeui.min.css">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/timedropper.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/menu.css">
+<style>
+	body, html {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+        background-image: url("<%=basePath%>images/background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;      
+		margin: 0;
+		padding: 0;
+	}
+</style>
 </head>
 <body><script src="/demos/googlegg.js"></script>
+<div class="nav">
+		<ul>
+			<li><a href="./Information_add.jsp">信息录入</a></li>
+			<li><a href="./Information_show.jsp">信息查询</a></li>
+			<li><a href="#">用户信息</a></li>
+		</ul>
+	</div>
 <div id="div1"></div>
 <!--录入信息口-->
 <div class="am-modal am-modal-no-btn  hd_info_modal" tabindex="-1" id="calendar-modal-1">
@@ -132,8 +154,7 @@
 	loading_calendar("div1","en");
 </script>
 <div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-<p>Browser:360,FireFox,Chrome,Safari,Opera,Maxthon,Sogou,Theworld.IE8 version and below is not available.</p>
-<!-- <p>from：<a href="http://www.lanrenzhijia.com/" target="_blank">懒人素材</a></p> -->
+<p>IBM UT</p>
 </div>
 
 </body>

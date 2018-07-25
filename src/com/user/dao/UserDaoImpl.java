@@ -71,7 +71,8 @@
                 pstmt = conn.prepareStatement(sql_userCheck);  
                 pstmt.setString(1, user.getId());  
                 pstmt.setString(2, user.getPassword());  
-                pstmt.setString(3, user.getAuthority());  
+                //pstmt.setString(3, user.getAuthority());  
+                pstmt.setString(3, "1"); 
                 i = pstmt.executeUpdate();  
             }catch(SQLException e){  
                 System.out.println("注册错误");  

@@ -1,6 +1,6 @@
 .nav {
 position:relative;
-top:30px;
+top:110px;
 width:10em;
 float:left;
 background-color: red;
@@ -8,7 +8,7 @@ outline-style:inset;
 outline-width:thick;
 font-family:coolveticarg;
 src:url('coolveticarg.ttf');
-font-style:italic;
+font-family: sans-serif;
 }
 
 .nav ul {

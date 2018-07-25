@@ -1,38 +1,43 @@
-    <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>  
+ <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>  
     <%@ taglib uri="/struts-tags" prefix="s" %>  
     <%@ page import="com.user.bean.User" %> 
     <%  
     String path = request.getContextPath();  
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
-    %>  
-    <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">  
-    <html>  
-      <head>  
-        <base href="<%=basePath%>">  
-        <title><s:text name="title_regist"></s:text></title>  
-        <meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
-      </head>  
-      <body>  
-        <form action="registAction!regist.action" method="post" name="form1">  
-        <table align="center">  
-            <tr>  
-                <td><s:text name="id"></s:text></td>  
-                <td><input type="text" name="user.id"></td>  
-            </tr>  
-            <tr>  
-                <td><s:text name="password"></s:text></td>  
-                <td><input type="password" name="user.password"></td>  
-            </tr>  
-            <tr>  
-                <td>普通用户：<input type="radio" name="user.authority" value="0"></td>  
-                <td>超级用户：<input type="radio" name="user.authority" value="1"> </td>  
-            </tr>  
-            <tr>  
-                <td><input type="submit" value=<s:text name="regist"></s:text>></td>  
-                <td><input type="reset" value=<s:text name="reset"></s:text>></td>  
-            </tr>  
-        </table>  
-        <s:actionerror/>  
-        </form>  
-      </body>  
-    </html>  
+    %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<base href="<%=basePath%>">  
+<title><s:text name="title_regist"></s:text></title>  
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">  
+<link href="./css/logon.css" rel="stylesheet" type="text/css" media="all" />
+<!-- //Custom Theme files -->
+<!-- web font -->
+<link href='http://fonts.googleapis.com/css?family=Oxygen:400,700'rel='stylesheet' type='text/css'>
+</head>
+<body>
+<h1>用户注册</h1>
+	<!--form-stars-here-->
+	<div class="login-form w3-agile">
+		<h2>用户注册</h2>
+		<form action="registAction!regist.action" method="post" name="form1">
+			<p>
+				<s:text name="id"></s:text>
+			</p>
+			<input type="text" name="user.id" placeholder=" " />
+			<p>
+				<s:text name="password"></s:text>
+			</p>
+			<input type="password" name="user.password" placeholder=""/>
+			<input type="submit" value=<s:text name="regist"></s:text>>
+            <input type="reset" value=<s:text name="reset"></s:text>>
+		</form>
+	</div>
+	<!--//form-ends-here-->
+	<!-- copyright -->
+	<div class="copyright w3-agile">
+		<p>IBM</p>
+	</div>
+</body>
+</html>

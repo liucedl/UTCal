@@ -1,0 +1,15 @@
+.nav1 {
+position:relative;
+top:110px;
+width:80%;
+left:180px;
+height:80%;
+background-color: blue;
+outline-style:inset;
+outline-width:thick;
+font-family:coolveticarg;
+src:url('coolveticarg.ttf');
+font-family: sans-serif;
+background: #fff;
+opacity:0.5;
+}

@@ -11,6 +11,8 @@
 	min-width: 180px;
 	float: left;
 	margin-top: 15px;
+	color:black;
+	font-weight:bold;
 }
 .fullYearPicker .date_clear{
 	clear: both;
@@ -89,7 +91,9 @@
 }
 
 .fullYearPicker table td {
+	
 	background: #fff;
+	opacity:0.5;
 	text-align: center;
 	line-height: 13px;
 	cursor: pointer;
@@ -104,7 +108,7 @@
 
 
 .fullYearPicker table th {
-	color: #000000;/*ºÚÉ«*/
+	color: #000000;/*ï¿½ï¿½É«*/
 	font-size: 14px;
 	padding: 5px;
 }
@@ -119,24 +123,24 @@
 	
 }
 
-/*Ñ¡ÖÐÑùÊ½ */
+/*Ñ¡ï¿½ï¿½ï¿½ï¿½Ê½ */
 .fullYearPicker table td.selected {
 	background: #ccc;
 }
 
-/*¹¤×÷Ê±¼äµÄÑùÊ½ */
+/*ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ê½ */
 .fullYearPicker table td.workday {
 	background:#C4E1FF;
 }
-/*·Ç¹¤×÷ÈÕµÄÑùÊ½ */
+/*ï¿½Ç¹ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½Ê½ */
 .fullYearPicker table td.freeday {
 	background:#FFC78E;
 }
-/*·Ç¶¨¼ÙÈÕµÄÑùÊ½ */
+/*ï¿½Ç¶ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½Ê½ */
 .fullYearPicker table td.lawday {
 	background:#DDDDFF;
 }
-/*µ÷ÐÝÈÕµÄÑùÊ½ */
+/*ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½ï¿½ï¿½Ê½ */
 .fullYearPicker table td.tradeday {
 	background:#CEFFCE;
 }
@@ -152,6 +156,7 @@
 
 .month-width-1{
 	width: 100%;
+	
 }
 .month-width-2{
 	width: 50%;
@@ -169,7 +174,7 @@
 
 
 
-/*ÐÅÏ¢¿òÉèÖÃ*/
+/*ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*/
 .hd_info_modal label{
 	float: left;
 	width: 50px;

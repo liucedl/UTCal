@@ -10,8 +10,32 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>UT Calculate System----Search</title>
 <!--  <link rel="stylesheet" type="text/css" href="../Css/mystyle2.css"> -->
+<link rel="stylesheet" href="../css/menu.css">
+<link rel="stylesheet" href="../css/main.css">
+<style>
+	body, html {
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+        background-image: url("../images/background.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;      
+		margin: 0;
+		padding: 0;
+	}
+</style>
 </head>
 <body>
+<div class="nav">
+		<ul>
+			<li><a href="./Information_add.jsp">信息录入</a></li>
+			<li><a href="./Information_show.jsp">信息查询</a></li>
+			<li><a href="#">用户信息</a></li>
+		</ul>
+	</div>
+	<div class="nav1">
 	<form name="Search_info" method="post" action="Information_show">
 		<table cellpadding="0" cellspacing="0" border="0">
 			<tbody>
@@ -192,6 +216,7 @@
 	<script type="text/javascript">	
 
 </script>
+</div>
 
 </body>
 </html>
