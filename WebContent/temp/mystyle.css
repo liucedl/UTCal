@@ -1,0 +1,395 @@
+
+
+body,h1,ul,h2{
+    margin:0;
+    padding:0;
+}
+
+ul{
+   list-style:outside none none;
+}
+
+a{
+   text-decoration:none;
+   
+}
+
+html{
+   width:100%; 
+   height:900px; 
+  background:-moz-linear-gradient(top,#E8E8E8,#f6f6f8);  
+   }
+
+
+
+#comn{
+   width:100%;
+   height:100px;
+   background-color:white;
+   border-top-style:solid;
+   border-width:2px;
+   border-color: #FF9900;
+
+}
+#comn > section{
+   width:1263px;
+   height:80px;
+   margin:0 auto;
+}
+#comn > section > h1{
+   width:520px;
+   height:80px;
+   background-image:url("../Img/log.png");
+   text-indent:-9999px;
+   float:left;
+   margin:0 auto;
+}
+#comn > section > ul{
+   width:650px;
+   height:70px;
+   line-height:70px;
+   color:#eee;
+   float:right;
+   margin:0 auto;
+}
+#comn > section > ul > li{
+   color:blue;
+   width:150px;
+   text-align:center;
+   float:left;
+}
+#comn > section > ul > li > a{
+   color:#000;
+   display:block;
+ 
+}
+#comn > section > ul > li > a:hover,#nav > section > ul > li.active a{
+   background-color:yellow;
+}
+
+#comn2{
+   width:100%;
+   height:30px;
+   background-color:#6495ED;
+   
+
+}
+#comn2 > section{
+   margin:0 auto;
+}
+
+#comn2 > section > p{
+    width:300px;
+    height:30px;
+    line-height:30px;
+    color:#eee;
+    float:left;
+    margin:0 auto;
+    font-size:15px;
+    font-weight:400;
+    font-style:normal;
+    font-family:Arial;
+    color:white;
+}
+
+/*----------------logon in(page2)--------start-----------------------*/
+
+.page21 {
+    background-color:white;
+    width:80%;
+    height:300px;
+    border: 25px solid #F8F8F8;
+    padding: 25px;
+    margin: 10px auto;
+}
+
+
+#page2t
+{
+	font-family:Arial;
+	width:70%;
+        margin: 20px auto;
+
+}
+
+#page2t td
+{
+	font-size:2.2em;
+        text-align:center;
+        background-color:white;
+}
+#page2t th 
+{
+        font-size:1.1em;
+        font-weight:700;
+        text-align:center;
+        background-color:white;
+}
+
+
+/*----------------logon in(page2)--------end-------------------------*/
+
+
+/*----------------page3,4--------start-------------------------------*/
+#page3{
+   width:70%;
+   height:70px;
+   border-style: outset;
+   border-color:#A7C942;
+   box-shadow: 5px 5px 5px #9EBE4B;
+   margin: auto;
+   background-color:#9EBE4B;
+}
+#page3 > section{
+   width:1263px;
+   height:70px;
+   margin:0 auto;
+}
+#page3 > section > h1{
+   width:520px;
+   height:70px;
+   float:center;
+   margin:0 auto;
+}
+#page3 > section > p{
+   
+    font-size:30px;
+    font-weight:700;
+    font-style:normal;
+    font-family:Arial;
+    text-align:center;
+    color:white;
+
+}
+
+
+
+#customers
+{
+	font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+	width:70%;
+	border-collapse:collapse;
+        border-style: outset;
+        border-color:#A7C942;
+        box-shadow: 5px 5px 5px #9EBE4B;
+        margin: 10px auto;
+
+}
+
+#customers caption{
+
+caption-side:bottom;
+color: red;
+
+}
+#customers td, #customers th 
+{
+	font-size:1em;
+	border:1px solid #98bf21;
+	padding:3px 7px 2px 7px;
+}
+#customers th 
+{
+	height:50px;
+        font-size:1.1em;
+	text-align:left;
+	padding-top:5px;
+	padding-bottom:4px;
+	background-color:#A7C942;
+	color:#ffffff;
+}
+#customers tr.alt td 
+{
+	height:50px;
+        width:50%;
+        color:#000000;
+	background-color:#EAF2D3;
+}
+
+
+#customers  td 
+{
+        /*text-decoration:underline;*/
+        text-decoration: none;
+}
+
+#customers td.active>span ,  #customers td:hover>span {
+            /*????*/
+            padding-bottom: 5px;
+           /*  border-bottom:  1px solid #00008B; */
+            color: #000000;
+        }
+
+/*----------------page3,4--------end---------------------------------*/
+
+
+/*----------------comn3--------pageend------start-------------------------*/
+#new1 ul{
+
+    list-style-type: none;
+    margin-left:  auto;
+    margin-right: auto;
+    width:70%;
+    overflow: hidden;
+    background-color: #bbb;
+
+
+}
+#new1 li {
+   
+    float: right;
+    text-align:center;
+    border-left:1px solid #bbb;
+ 
+}
+
+#new1 li a {
+
+display: block;
+    color:#bbb;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+#new1 li a:hover {
+    background-color: #111;
+}
+/*----------------comn3--------pageend------end-------------------------*/
+
+/*----------------homepage--------start---------------------------------*/
+/*------nav-------------------------------------*/
+#idx1 ul
+{
+	list-style-type:none;
+	margin:0;
+	padding:0;
+	padding-top:6px;
+	padding-bottom:6px;
+        background-color:  #99ddff ;
+
+}
+#idx1 li
+{
+	display:inline;
+}
+#idx1 a:link,a:visited
+{
+	font-weight:bold;
+	/* color:white; */
+	background-color: #87CEFA ;
+	text-align:center;
+	padding:6px;
+	text-decoration:none;
+	
+}
+#idx1 a:hover,a:active
+{
+	background-color:#87CEFA;
+}
+
+/*------news1-------------------------------------*/
+
+
+#news1 h5{
+       text-decoration:underline;
+          }
+
+#news1{
+   
+   width:700px;
+   height:400px; 
+   margin:15px;
+   margin-left:150px;
+   padding:15px;
+   float:left;
+   background-color:#ecffff;
+   border-color:white;
+   border-style: outset;
+
+}
+
+#news1  table{
+}
+
+
+
+
+#news1 > ul > ol >li{
+   margin-top:25px;
+}
+
+#news1  ul{
+          list-style-type:circle;
+}
+
+#news1  th{
+
+	text-align:left;
+}
+
+#news1  td{
+}
+
+/*------project1----------------------------------*/
+
+#project1{
+
+   width:800px;
+   height:300px; 
+   margin:15px;
+   margin-left:150px;
+   padding:15px;
+   float:left;
+   background-image:url("term.png");
+   border-style: outset;
+
+}
+
+#project1 h5{
+       text-decoration:underline;
+          }
+
+
+
+
+/*------other1--------------------------------------*/
+
+#message{
+   width:1800px; 
+   height:360px;
+   margin:100px auto;
+   position:relative;
+   overflow:hidden;
+   padding:50px;
+}
+#message.center{
+   text-align:center;
+}
+#message.center h2{
+   font-size:45px;
+   letter-sapcing:2px;
+    background:-moz-linear-gradient(top,#E8E8E8,#f6f6f8); 
+ /*  color:#666;  */
+   margin:10px 0;
+}
+#message  ul{
+   position:relative;
+   left:0;
+   top:0;
+}
+#message  ul  li{
+   float:left;
+   width:300px; 
+   height:180px;
+   list-style:none;
+}
+
+.html{
+   width:100%; 
+  background:-moz-linear-gradient(top,#E8E8E8,#f6f6f8);  
+   }
+
+
+/*----------------homepage--------end-----------------------------------*/
