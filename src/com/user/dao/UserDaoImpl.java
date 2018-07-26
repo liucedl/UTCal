@@ -139,7 +139,13 @@
     			//预编译处理
     			pstmt.setString(1, user.getPassword());
     			pstmt.setString(2, user.getName());
-    			pstmt.setString(3, user.getSex());
+    			if (user.getSex().equals("男")) {
+    			 pstmt.setString(3, "1");
+    			}else if (user.getSex().equals("女")){
+    		     pstmt.setString(3, "0");	
+    			}else if(user.getSex().equals("")||user.getSex()==null){
+    			 pstmt.setString(3, user.getSex());
+    			}
     			pstmt.setString(4, user.getDept());
     			pstmt.setString(5, user.getProject());
     			pstmt.setString(6, user.getManagerid());

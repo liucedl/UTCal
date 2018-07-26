@@ -40,8 +40,10 @@ public class UserAction extends ActionSupport{
             return ERROR;  
         }else{  
             ActionContext.getContext().put("tip", getText("success"));  
-            ActionContext.getContext().put("userid", user.getId());  
-            ActionContext.getContext().put("username", user.getName()); 
+            //ActionContext.getContext().put("userid", user.getId());  
+            //ActionContext.getContext().put("username", user.getName()); 
+            //ActionContext.getContext().getSession().put("userid",user.getId());
+            ActionContext.getContext().getSession().put("userid", user.getId());
             return SUCCESS;  
         }  
     }  
