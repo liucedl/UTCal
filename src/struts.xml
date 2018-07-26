@@ -38,8 +38,7 @@
     <package name="UTCal" namespace="/" extends="struts-default">  
         <action name="loginAction" class="com.user.action.UserAction" method="login">  
             <result name="success">/Control/Information_add.jsp</result>  
-            <result name="error">/page/error.jsp</result>  
-            <result name="input">/page/Login.jsp</result>  
+            <result name="error">/page/Login.jsp</result>   
         </action>  
         <action name="registAction" class="com.user.action.UserAction" method="regist">  
             <result name="success">/page/Login.jsp</result>  

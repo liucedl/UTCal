@@ -42,6 +42,12 @@
 			<p>
 				<s:text name="password"></s:text>
 			</p>
+			<s:if test="message != null"> 
+				<script  type="text/javascript">
+						var msg = "${message}";
+						alert(msg);
+				</script>
+			</s:if>
 			<input type="password" name="user.password" placeholder=""/>
 			<input type="submit"   value=<s:text name="submit"></s:text>>
 			<input type="button"   value=<s:text name="regist"></s:text> onclick="window.location.href='./page/Register.jsp'">

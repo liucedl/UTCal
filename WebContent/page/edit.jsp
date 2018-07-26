@@ -45,6 +45,7 @@
              <p class="navbar-text"><font color="00ffff">Welcome Back</font></p>  
          </div>  
      </nav>  
+     <
 	<form action="updateByIdAction!updateById.action" method="post"
 		name="form1">
 		<table cellpadding="4" cellspacing="1" border="0" width="539"
@@ -68,8 +69,8 @@
 					<td><label>性别</label></td>
 					<td><input type="radio" id="user.sex" name="user.sex"
 						${sex=='1'?'checked':''} value="男"><label
-						for="flat-radio-1" class="">男</label></td>
-					<td><input type="radio" id="user.sex" name="user.sex"
+						for="flat-radio-1" class="">男</label>
+					<input type="radio" id="user.sex" name="user.sex"
 						${sex=='0'?'checked':''} value="女"> <label
 						for="flat-radio-1" class="">女</label></td>
 				</tr>

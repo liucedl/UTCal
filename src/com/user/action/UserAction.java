@@ -16,6 +16,7 @@ import com.user.dao.UserDaoImpl;
 public class UserAction extends ActionSupport{  
     private static final long serialVersionUID = 1L;  
     private User user;  
+    private String message;
     private UserDao userDao = new UserDaoImpl();  
     public User getUser() {  
         return user;  
@@ -23,6 +24,13 @@ public class UserAction extends ActionSupport{
     public void setUser(User user) {  
         this.user = user;  
     }  
+    //message
+	public String getMessage() {
+		return message;
+	}
+	public void setMessage(String message) {
+		this.message = message;
+	} 
     //注册  
     public String regist(){  
         UserDaoImpl dao = new UserDaoImpl();  
@@ -37,6 +45,7 @@ public class UserAction extends ActionSupport{
     public String login(){  
         User checkUser = userDao.userLogin(user.getId(),user.getPassword());  
         if(null == checkUser){  
+        	ActionContext.getContext().put("mess","用户信息不存在，请确认账户是否正确");
             return ERROR;  
         }else{  
             ActionContext.getContext().put("tip", getText("success"));  
