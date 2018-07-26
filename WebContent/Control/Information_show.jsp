@@ -55,7 +55,7 @@
 								<tr>
 									<td width="125" height="10" align="right"
 										class="bgcolor_yellow2">工号：</td>
-									<td align="left"><input name="hd_userid" value="${session.userid}" readonly="readonly"
+									<td align="left"><input name="hd_userid" value="${userid}" readonly="readonly"
 										type="text" onfocus="this.style.backgroundColor='#FEFCD8'"
 										onblur="this.style.backgroundColor='#FFFFFF'"
 										onchange="DateCheck(this.id)" maxlength="6"
