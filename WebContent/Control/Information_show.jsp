@@ -12,6 +12,7 @@
 <!--  <link rel="stylesheet" type="text/css" href="../Css/mystyle2.css"> -->
 <link rel="stylesheet" href="../css/menu.css">
 <link rel="stylesheet" href="../css/main.css">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
 <style>
 	body, html {
 		position: absolute;
@@ -21,23 +22,30 @@
 		right: 0;
         background-image: url("../images/background.jpg");
         background-repeat: no-repeat;
-        background-size: cover;      
+        background-size: cover;
+        background-attachment:fixed;      
 		margin: 0;
 		padding: 0;
 	}
 </style>
 </head>
 <body>
-<div class="nav">
-		<ul>
-			<li><a href="./Information_add.jsp">信息录入</a></li>
-			<li><a href="./Information_show.jsp">信息查询</a></li>
-			<li><a href="#">用户信息</a></li>
-		</ul>
-	</div>
+	<nav class = "navbar navbar-default  navbar-inverse" role = "navigation">  
+        <div class="navbar-header">             
+            <a class="navbar-brand"><font color="00ffff">IBM</font></a>  
+        </div>          
+        <div>  
+            <ul class="nav navbar-nav">  
+                <li class="active"><a href="../Control/Information_add.jsp">信息录入</a></li>  
+                 <li><a href="../Control/Information_show.jsp">信息查询</a></li>  
+                <li><a href="getUserByIdAction!getUserById.action">用户信息</a></li>  
+             </ul>  
+             <p class="navbar-text"><font color="00ffff">Welcome Back</font></p>  
+         </div>  
+     </nav>  
 	<div class="nav1">
 	<form name="Search_info" method="post" action="Information_show">
-		<table cellpadding="0" cellspacing="0" border="0">
+		<table cellpadding="0" cellspacing="0" border="0" align="center">
 			<tbody>
 				<tr>
 					<td>
@@ -93,7 +101,7 @@
 				</tr>
 			</tbody>
 		</table>
-		<table cellpadding="0" cellspacing="0" border="0" width="50%">
+		<table cellpadding="0" cellspacing="0" border="0" width="50%" align="center">
 			<tr>
 				<td align="center"><input type="submit" value=" 查询 "
 					class="form_bt_px16" onclick="" type="button"
@@ -110,7 +118,7 @@
 	<hr align="left" size="1" class="bgcolor_gray2" width="85%">
 	<p></p>
 
-<table>
+<table align="center">
     <tbody>
      <tr>
         <td width="100" height="10" align="left" class="bgcolor_yellow2"></td>您本次查询结果如下。</tr>
@@ -149,7 +157,7 @@
    
 
 
-	<table>
+	<table align="center">
 		<tbody>
 			<tr>
 				<td>

@@ -7,7 +7,7 @@
     String path = request.getContextPath();  
     String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
     System.out.println(basePath);
-    System.out.println(request.getAttribute("userid"));
+    System.out.println(session.getAttribute("userid"));
     %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -21,6 +21,8 @@
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/amazeui.min.css">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/timedropper.css">
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/menu.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/main.css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/bootstrap.min.css">
 <style>
 	body, html {
 		position: absolute;
@@ -30,25 +32,32 @@
 		right: 0;
         background-image: url("<%=basePath%>images/background.jpg");
         background-repeat: no-repeat;
-        background-size: cover;      
+        background-size: cover;
+        background-attachment:fixed;      
 		margin: 0;
 		padding: 0;
 	}
 </style>
 </head>
-<body><script src="/demos/googlegg.js"></script>
-<div class="nav">
-		<ul>
-			<li><a href="./Information_add.jsp">信息录入</a></li>
-			<li><a href="./Information_show.jsp">信息查询</a></li>
-			<li><a href="#">用户信息</a></li>
-		</ul>
-	</div>
-<div id="div1"></div>
-<!--录入信息口-->
+<body>
+	<nav class = "navbar navbar-default  navbar-inverse" role = "navigation">  
+        <div class="navbar-header">             
+            <a class="navbar-brand"><font color="00ffff">IBM</font></a>  
+        </div>          
+        <div>  
+            <ul class="nav navbar-nav">  
+                <li class="active"><a href="<%=basePath%>Control/Information_add.jsp">信息录入</a></li>  
+                 <li><a href="<%=basePath%>Control/Information_show.jsp">信息查询</a></li>  
+                <li><a href="getUserByIdAction!getUserById.action">用户信息</a></li>  
+             </ul>  
+             <p class="navbar-text"><font color="00ffff">Welcome Back</font></p>  
+         </div>  
+     </nav>  
+		<div id="div1"></div>
+	<!--录入信息口-->
 <div class="am-modal am-modal-no-btn  hd_info_modal" tabindex="-1" id="calendar-modal-1">
   <div class="am-modal-dialog radius">
-	<div class="am-modal-hd">信息录入
+	<div class="am-modal-hd">
 	  <a href="javascript: void(0)" class="am-close am-close-spin" data-am-modal-close>&times;</a>
 	</div>
 	<div class="am-modal-bd">
@@ -145,7 +154,8 @@
 	
 	</script>
 
-<script src="<%=basePath%>js/jquery.min.js"></script>
+<script src="<%=basePath%>js/bootstrap.min.js" charset="utf-8"></script>
+<script src="<%=basePath%>js/jquery.min.js" charset="utf-8"></script>
 <script src="<%=basePath%>js/amazeui.min.js" charset="utf-8"></script>
 <script src="<%=basePath%>js/timedropper.js" charset="utf-8"></script>
 <script src="<%=basePath%>js/calendar.js" charset="utf-8"></script>
@@ -153,9 +163,6 @@
 	/*日历*/
 	loading_calendar("div1","en");
 </script>
-<div style="text-align:center;margin:50px 0; font:normal 14px/24px 'MicroSoft YaHei';">
-<p>IBM UT</p>
-</div>
 
 </body>
 </html>

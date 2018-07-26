@@ -1,34 +1,6 @@
-.nav {
+.daohang {
 position:relative;
 top:110px;
 width:10em;
 float:left;
-background-color: red;
-outline-style:inset;
-outline-width:thick;
-font-family:coolveticarg;
-src:url('coolveticarg.ttf');
-font-family: sans-serif;
-}
-
-.nav ul {
-margin: 0;padding: 0;
-list-style-type: none; 
-line-height: 7.5em;
-}
-
-
-.nav a {
-display: block; 
-width: 10em; 
-text-align: center;
-text-decoration: none;
-background-color:#5555FF;
-color:black;
-}
-
-
-.nav a:hover {
-	background-color:#5599FF;
-	color:black;
 }

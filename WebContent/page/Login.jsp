@@ -32,6 +32,7 @@
 	<h1>用户登录</h1>
 	<!--form-stars-here-->
 	<div class="login-form w3-agile">
+	<s:fielderror cssStyle="color:red"></s:fielderror>
 		<h2>用户登陆</h2>
 		<form action="loginAction!login.action" method="post" name="form1">
 			<p>
