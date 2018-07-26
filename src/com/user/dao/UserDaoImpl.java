@@ -46,7 +46,31 @@
             }  
             return user;  
         }  
-      
+        public User userFind(String id) {  
+
+            //获得链接  
+            conn = DBConnection.getConn();  
+            //准备  
+            String sql_userCheck="select user_id from user where user_id=?";  
+            try {  
+                pstmt = conn.prepareStatement(sql_userCheck);  
+                pstmt.setString(1, id); 
+             //   pstmt.setString(3, authority);  
+                rs = pstmt.executeQuery();  
+                if(rs.next()){  
+                    user = new User();  
+                    user.setId(rs.getString("user_id"));  
+                }  
+            } catch (Exception e) {  
+                System.out.println("注册错误！");  
+                e.printStackTrace();  
+            } finally{  
+                DBConnection.closeConn(conn);  
+                DBConnection.closeStatement(pstmt);  
+                DBConnection.closeResult(rs);  
+            }  
+            return user;  
+        }  
         @Override  
         public int Register(User user) {  
             int i=-1;  
@@ -67,11 +91,11 @@
               //      System.out.println(user.getAuthority());  
               //  }  
                 //准备  
-                String sql_userCheck="INSERT INTO user (user.user_id,user.user_password,user.user_name,user.user_sex,user.user_dept,user.user_project,user.user_manager_id,user.user_authority) VALUES(?,?,null,null,null,null,null,null)";  
+                String sql_userCheck="INSERT INTO user (user.user_id,user.user_password,user.user_name,user.user_sex,user.user_dept,user.user_project,user.user_manager_id,user.user_authority) VALUES(?,?,null,null,null,null,null,?)";  
                 pstmt = conn.prepareStatement(sql_userCheck);  
                 pstmt.setString(1, user.getId());  
                 pstmt.setString(2, user.getPassword());  
-              //  pstmt.setString(3, user.getAuthority());  
+                pstmt.setString(3, "1");  
                 i = pstmt.executeUpdate();  
             }catch(SQLException e){  
                 System.out.println("注册错误");  

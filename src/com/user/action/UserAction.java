@@ -45,7 +45,7 @@ public class UserAction extends ActionSupport{
     public String login(){  
         User checkUser = userDao.userLogin(user.getId(),user.getPassword());  
         if(null == checkUser){  
-        	ActionContext.getContext().put("mess","用户信息不存在，请确认账户是否正确");
+       		ActionContext.getContext().put("message","用户信息不存在，请确认账户是否正确");
             return ERROR;  
         }else{  
             ActionContext.getContext().put("tip", getText("success"));  

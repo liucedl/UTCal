@@ -20,6 +20,7 @@
 <h1>用户注册</h1>
 	<!--form-stars-here-->
 	<div class="login-form w3-agile">
+		<s:fielderror cssStyle="color:red"></s:fielderror>
 		<h2>用户注册</h2>
 		<form action="registAction!regist.action" method="post" name="form1">
 			<p>

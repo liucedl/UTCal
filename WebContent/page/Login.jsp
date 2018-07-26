@@ -18,6 +18,12 @@
 	content="Boundary Sign in Form template Responsive, Login form web template,Flat Pricing tables,Flat Drop downs  Sign up Web Templates, Flat Web Templates, Login sign up Responsive web template, SmartPhone Compatible web template, free WebDesigns for Nokia, Samsung, LG, Sony Ericsson, Motorola web design" />
 <script type="application/x-javascript">
 	 addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } 
+	 function alert(){
+		 var alertConten = ${message};
+		 if（alertConten!=null)
+		   alert(alertConten);
+		 }
+
 </script>
 <!-- Custom Theme files -->
 <link href="./css/logon.css" rel="stylesheet" type="text/css"
@@ -42,12 +48,6 @@
 			<p>
 				<s:text name="password"></s:text>
 			</p>
-			<s:if test="message != null"> 
-				<script  type="text/javascript">
-						var msg = "${message}";
-						alert(msg);
-				</script>
-			</s:if>
 			<input type="password" name="user.password" placeholder=""/>
 			<input type="submit"   value=<s:text name="submit"></s:text>>
 			<input type="button"   value=<s:text name="regist"></s:text> onclick="window.location.href='./page/Register.jsp'">
