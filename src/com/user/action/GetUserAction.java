@@ -29,13 +29,13 @@ public class GetUserAction extends ActionSupport{
 		if(null == checkUser){  
             return ERROR;  
         }else{ 
-        	System.out.println("===============================cu");
+/*        	System.out.println("===============================cu");
         	System.out.println("name" + checkUser.getName());
         	System.out.println("sex" + checkUser.getSex());
         	System.out.println("password" + checkUser.getPassword());
         	System.out.println("dept" + checkUser.getDept());
         	System.out.println("project" + checkUser.getProject());
-        	System.out.println("password" + checkUser.getPassword());
+        	System.out.println("password" + checkUser.getPassword());*/
         ActionContext.getContext().put("names", checkUser.getName());
         ActionContext.getContext().put("sex", checkUser.getSex());
         ActionContext.getContext().put("password", checkUser.getPassword());

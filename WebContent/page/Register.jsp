@@ -33,6 +33,7 @@
 			<input type="password" name="user.password" placeholder=""/>
 			<input type="submit" value=<s:text name="regist"></s:text>>
             <input type="reset" value=<s:text name="reset"></s:text>>
+            <input type="button"   value=<s:text name="submit"></s:text> onclick="window.location.href='./page/Login.jsp'">
 		</form>
 	</div>
 	<!--//form-ends-here-->

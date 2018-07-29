@@ -4,6 +4,12 @@
 <%@ page import="java.util.List"%>
 <%@ page import="DTO.InformationDTO"%>
 <%@ page import="java.util.ArrayList"%>
+ <%  
+    String path = request.getContextPath();  
+    String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";  
+    System.out.println(basePath);
+    System.out.println(session.getAttribute("userid"));
+    %>  
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -39,6 +45,7 @@
                 <li class="active"><a href="../Control/Information_add.jsp">信息录入</a></li>  
                  <li><a href="../Control/Information_show.jsp">信息查询</a></li>  
                 <li><a href="getUserByIdAction!getUserById.action">用户信息</a></li>  
+                <li><a href="javascript:loginOut();"><i class="i i-exit"></i><span class="hidden-xs">退出登陆</span></a></li>
              </ul>  
              <p class="navbar-text"><font color="00ffff">Welcome Back</font></p>  
          </div>  
@@ -213,6 +220,14 @@
 	</table>
 
 	<p></p>
+	<script type="text/javascript">
+	
+	function loginOut() {
+		alert("你确定要退出登陆吗？");
+		location.replace("<%=basePath%>page/Logout.jsp"); //loginOut即是你所要转的退出登录的地址
+	}
+	
+	</script>
 
 	<script src="../js/button_check.js"></script>
 	<script type="text/javascript" src="../js/InputCheck.js"></script>

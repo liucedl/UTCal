@@ -32,8 +32,8 @@
                     user.setId(rs.getString("user_id"));  
                     user.setPassword(rs.getString("user_password"));  
               //      user.setAuthority(rs.getString("authority"));  
-                    System.out.println(user.getId());  
-                    System.out.println(user.getPassword());  
+              //      System.out.println(user.getId());  
+              //      System.out.println(user.getPassword());  
               //      System.out.println(user.getAuthority());  
                 }  
             } catch (Exception e) {  
@@ -110,7 +110,7 @@
     	public User getUserById(String id) {
     		//查询SQL
     		String sql = " select * from user where user_id =?";
-    		System.out.println(sql); 
+    		//System.out.println(sql); 
     		try{
     			//获得数据库连接
     			conn = DBConnection.getConn();   			
@@ -130,10 +130,10 @@
     				user.setDept(rs.getString("user_dept"));
     				user.setProject(rs.getString("user_project"));
     				user.setManager_id(rs.getString("user_manager_id"));	
-    			 	System.out.println("===============================yzy");
-    	        	System.out.println(user.getName());
-    	        	System.out.println(user.getId());
-    	        	System.out.println("password" + user.getPassword());
+    			// 	System.out.println("===============================yzy");
+    	        	//System.out.println(user.getName());
+    	        //	System.out.println(user.getId());
+    	        	//System.out.println("password" + user.getPassword());
     			}
     		}catch(Exception ex)
     		{
@@ -163,32 +163,41 @@
     			//预编译处理
     			pstmt.setString(1, user.getPassword());
     			pstmt.setString(2, user.getName());
-    			if (user.getSex().equals("男")) {
+/*    			if (user.getSex().equals("男")) {
     			 pstmt.setString(3, "1");
     			}else if (user.getSex().equals("女")){
     		     pstmt.setString(3, "0");	
     			}else if(user.getSex().equals("")||user.getSex()==null){
     			 pstmt.setString(3, user.getSex());
-    			}
+    			}*/
+    			if (user.getSex()==null) {
+    				pstmt.setString(3, user.getSex());
+    			} else if (user.getSex().equals("男")) {
+				pstmt.setString(3, "1");
+			} else if (user.getSex().equals("女")) {
+				pstmt.setString(3, "0");
+			} else if (user.getSex().equals("") ) {
+				pstmt.setString(3, user.getSex());
+			}
     			pstmt.setString(4, user.getDept());
     			pstmt.setString(5, user.getProject());
     			pstmt.setString(6, user.getManagerid());
     		//	pstmt.setString(7, user.getAuthority());
     			pstmt.setString(7, user.getId());
-    		 	System.out.println("===============================updateById");
-	        	System.out.println("password" + user.getPassword());
-	        	System.out.println("Name"+user.getName());
-	        	System.out.println("Sex"+user.getSex());
-	        	System.out.println("Dept"+user.getDept());
-	        	System.out.println("Project"+user.getProject());
-	        	System.out.println("Managerid"+user.getManagerid());
-	        	System.out.println("id" + user.getId());
+    		// 	System.out.println("===============================updateById");
+	    //    	System.out.println("password" + user.getPassword());
+	    //    	System.out.println("Name"+user.getName());
+	    //    	System.out.println("Sex"+user.getSex());
+	    //    	System.out.println("Dept"+user.getDept());
+	    //   	System.out.println("Project"+user.getProject());
+	    //    	System.out.println("Managerid"+user.getManagerid());
+	    //    	System.out.println("id" + user.getId());
 
     			//执行修改
     			result = pstmt.executeUpdate();
     			if(result != 0)
     			{
-    				System.out.println("你修改了一条记录！");
+    		//		System.out.println("你修改了一条记录！");
     			}
     		}
     		catch(Exception ex)

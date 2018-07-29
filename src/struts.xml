@@ -48,11 +48,11 @@
         </action> 
         <action name="getUserByIdAction" class="com.user.action.GetUserAction" method="getUserById">
    		<result name="success">/page/edit.jsp</result>
-   		<result name="error">/page/Register.jsp</result>  
+   		<result name="error">/page/Login.jsp</result>  
 		</action> 
 		<action name="updateByIdAction" class="com.user.action.GetUserAction" method="updateById">
    		<result name="success">/Control/Information_add.jsp</result>
-   		<result name="error">/page/Register.jsp</result>  
+   		<result name="error">/page/Login.jsp</result>  
 		</action> 
     </package>  
 </struts>    

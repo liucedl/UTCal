@@ -38,10 +38,10 @@ public final class DBConnection {
     //1.注册驱动  
     static{  
         try {  
-            System.out.println(DRIVER);
+            /*System.out.println(DRIVER);
             System.out.println(USER);
             System.out.println(URL);
-            System.out.println(PWD);
+            System.out.println(PWD);*/
             Class.forName(DRIVER);  
         } catch (ClassNotFoundException e) {  
             System.out.println("注册驱动失败！");  

@@ -35,7 +35,8 @@ public class UserAction extends ActionSupport{
     public String regist(){  
         UserDaoImpl dao = new UserDaoImpl();  
         int i = dao.Register(user);  
-        if(i!=-1){  
+        if(i!=-1){
+        		ActionContext.getContext().put("message","注册成功！");
             return SUCCESS;  
         }else{  
             return ERROR;  
