@@ -36,9 +36,11 @@ public class UserAction extends ActionSupport{
         UserDaoImpl dao = new UserDaoImpl();  
         int i = dao.Register(user);  
         if(i!=-1){
-        		ActionContext.getContext().put("message","注册成功！");
+        		//ActionContext.getContext().put("message","注册成功！");
+        		addFieldError("reg", "注册成功！");
             return SUCCESS;  
         }else{  
+        		addFieldError("reg", "注册失败！");
             return ERROR;  
         }  
     }  
@@ -46,7 +48,8 @@ public class UserAction extends ActionSupport{
     public String login(){  
         User checkUser = userDao.userLogin(user.getId(),user.getPassword());  
         if(null == checkUser){  
-       		ActionContext.getContext().put("message","用户信息不存在，请确认账户是否正确");
+       		//ActionContext.getContext().put("message","用户信息不存在，请确认账户是否正确");
+       		addFieldError("user", "用户信息不存在，请确认账户是否正确"); 
             return ERROR;  
         }else{  
             ActionContext.getContext().put("tip", getText("success"));  
